@@ -1,10 +1,10 @@
 FROM python:3.12.0b1-slim
 
-ENV CORE_VERSION=0.21.2.1
-ENV CORE_NAME="litecoin"
+ENV CORE_VERSION=1.14.6
+ENV CORE_NAME="dogecoin"
 
 RUN useradd -m ${CORE_NAME} && apt-get update -y && apt-get install curl gnupg -y
-ENV CORE_URL=https://download.litecoin.org/litecoin-${CORE_VERSION}/linux/litecoin-${CORE_VERSION}-x86_64-linux-gnu.tar.gz
+ENV CORE_URL=https://github.com/dogecoin/dogecoin/releases/download/v${CORE_VERSION}/dogecoin-${CORE_VERSION}-x86_64-linux-gnu.tar.gz
 
 RUN curl -SLO ${CORE_URL} \
   && tar --strip=2 -xzf *.tar.gz -C /usr/local/bin \
@@ -13,5 +13,5 @@ RUN curl -SLO ${CORE_URL} \
 COPY env_core_starter.py /env_core_starter.py
 USER ${CORE_NAME}
 
-EXPOSE 9332 9333 19332 19333 19444
+EXPOSE 22555 22556
 CMD python3 env_core_starter.py
