@@ -4,8 +4,10 @@ docker-compose example
 ```
 services:
   core:
-    build: https://github.com/dev-epays/dogecoin-core-docker.git
+    build: git@github.com:dev-epays/dogecoin-core-docker.git#main
     environment:
       RPC_USER: "dogecoin"
       RPC_PASSWORD: "dogecoin"
+    volumes:
+      - /home/blockchain/.dogecoin:/home/dogecoin/.dogecoin
 ```
