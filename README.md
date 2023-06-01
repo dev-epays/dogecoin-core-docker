@@ -9,5 +9,5 @@ services:
       RPC_USER: "dogecoin"
       RPC_PASSWORD: "dogecoin"
     volumes:
-      - /home/blockchain/.dogecoin:/home/dogecoin/.dogecoin
+      - /home/blockchain/dogecoin:/home/dogecoin/
 ```
